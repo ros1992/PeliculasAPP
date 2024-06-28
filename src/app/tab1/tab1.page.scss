@@ -1,0 +1,12 @@
+.center-title {
+  text-align: center !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+ion-modal {
+  --height: 53%;
+  --width: 85%;
+  --border-radius: 10px;
+}
