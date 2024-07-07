@@ -47,6 +47,7 @@ export class DataLocalService {
       this.peliculas = [pelicula, ...this.peliculas];
       this.mensajes = 'Película agregada a favoritos';
       this.icon = 'star-outline';
+
     }
 
     this.presentToast(this.mensajes, this.icon);
