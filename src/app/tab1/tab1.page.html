@@ -14,19 +14,29 @@
     <ng-template>
       <ion-content>
         <ion-datetime locale="es-ES" presentation="date"
-          (ionChange)="dateChanged($event)">
+                      (ionChange)="dateChanged($event)">
         </ion-datetime>
         <ion-button (click)="closeDatePicker()">Cerrar</ion-button>
       </ion-content>
     </ng-template>
   </ion-modal>
 
-  <swiper-container [slidesPerView]="1.3" [freeMode]="true">
-    <swiper-slide *ngFor="let pelicula of PeliculasMBD">
-      <ion-card>
-        <img [src]="pelicula.backdrop_path | imagen">
-      </ion-card>
-    </swiper-slide>
-  </swiper-container>
+  <app-slideshow-backdrop [peliculas]="PeliculasMBD"></app-slideshow-backdrop>
+
+  <ion-header mode="ios" class="ion-padding">
+    <ion-toolbar>
+      <ion-title>Poster</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-slideshow-poster [poster]="PeliculasMBD"></app-slideshow-poster>
+
+  <ion-header mode="ios" class="ion-padding">
+    <ion-toolbar>
+      <ion-title>En Cines</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-pares [poster]="Popular" (cargamass)="cargarMas()"></app-pares>
 
 </ion-content>

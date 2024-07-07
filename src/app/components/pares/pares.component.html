@@ -1,0 +1,15 @@
+<swiper-container [slidesPerView]="3.3" [freeMode]="true" [spaceBetween]="-10" class="poster">
+  <swiper-slide *ngFor="let peliculas of poster | pares">
+    <ion-col size="12" *ngFor="let pelicula of peliculas">
+      <ion-card (click)="openModal(pelicula.id)">
+        <img [src]="pelicula.poster_path | imagen">
+      </ion-card>
+    </ion-col>
+  </swiper-slide>
+  <swiper-slide class="slide-mas">
+    <ion-button expand="full" size="large" (click)="onClick()" class="btn-mas">
+      <ion-icon name="add" slot="icon-only"></ion-icon>
+    </ion-button>
+  </swiper-slide>
+</swiper-container>
+

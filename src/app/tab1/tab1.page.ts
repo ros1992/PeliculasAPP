@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ServicesPeliculasService} from "../services/services-peliculas.service";
 
-import {register} from "swiper/element/bundle";
 import {Peliculas} from "../interfaces/moviesMBD";
-
-register();
 
 @Component({
   selector: 'app-tab1',
@@ -14,6 +11,7 @@ register();
 export class Tab1Page implements OnInit {
 
   public PeliculasMBD: Peliculas[] = [];
+  public Popular: Peliculas[] = [];
   public isDatePickerOpen = false;
 
   constructor(private http: ServicesPeliculasService) {
@@ -21,9 +19,17 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
 
+    this.populare();
+
     this.http.getFeature().subscribe((data) => {
-      console.log(data);
       this.PeliculasMBD = data.results;
+    })
+  }
+
+  populare() {
+    this.http.getPopular().subscribe((data) => {
+      const arrTemp = [...this.Popular, ...data.results];
+      this.Popular = arrTemp;
     })
   }
 
@@ -38,6 +44,10 @@ export class Tab1Page implements OnInit {
   dateChanged(event: any) {
     console.log('Fecha seleccionada:', event.detail.value);
     this.closeDatePicker();
+  }
+
+  cargarMas() {
+    this.populare();
   }
 
 }

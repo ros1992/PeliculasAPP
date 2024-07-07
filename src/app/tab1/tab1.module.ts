@@ -6,8 +6,8 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import {PipesModule} from "../pipes/pipes.module";
+import {ComponentsModule} from "../components/components.module";
 
 @NgModule({
   imports: [
@@ -16,9 +16,9 @@ import {PipesModule} from "../pipes/pipes.module";
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-    PipesModule
+    PipesModule,
+    ComponentsModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   declarations: [Tab1Page]
 })
 export class Tab1PageModule {}
